@@ -60,6 +60,8 @@ export default function RootLayout({
             <span>&copy; {new Date().getFullYear()} ProductCompare. All rights reserved.</span>
             <div className="flex gap-6">
               <a href="/pro" className="hover:text-gray-700 no-underline">Pricing</a>
+              <a href="/privacy" className="hover:text-gray-700 no-underline">Privacy</a>
+              <a href="/terms" className="hover:text-gray-700 no-underline">Terms</a>
               <a href="mailto:support@productcompare.app" className="hover:text-gray-700 no-underline">Support</a>
             </div>
           </div>
