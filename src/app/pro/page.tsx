@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ProductCompare Pro — AI Verdicts, Price History & More",
+  title: "CompareCart Pro — AI Verdicts, Price History & More",
   description: "Upgrade to Pro for AI-powered verdicts, price history charts, image export, and 5-product comparisons.",
 };
 
@@ -19,8 +19,15 @@ export default function ProPage() {
           </p>
         </div>
 
+        {/* Trial banner */}
+        <div className="bg-green-50 border border-green-200 rounded-xl px-6 py-4 text-center mb-10 max-w-3xl mx-auto">
+          <p className="text-sm font-semibold text-green-800">
+            🎉 Every new install gets <strong>7 days of Pro free</strong>. No credit card required.
+          </p>
+        </div>
+
         {/* Pricing cards */}
-        <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto mb-16">
+        <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
           {/* Free */}
           <div className="bg-white rounded-2xl border border-gray-200 p-8">
             <h3 className="font-bold text-gray-900 text-lg mb-1">Free</h3>
@@ -37,12 +44,42 @@ export default function ProPage() {
               <Li>Image export</Li>
             </ul>
             <a
-              href="https://chromewebstore.google.com"
+              href="https://chromewebstore.google.com" /* TODO: Replace with actual CWS listing URL */
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full text-center bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold text-sm hover:bg-gray-200 transition no-underline"
             >
               Install Free
+            </a>
+          </div>
+
+          {/* Launch Special */}
+          <div className="bg-white rounded-2xl border-2 border-orange-500 p-8 relative">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-xs font-bold px-4 py-1 rounded-full">
+              EARLY ADOPTER
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-1">Launch Special</h3>
+            <div className="flex items-baseline gap-2 mb-1">
+              <p className="text-3xl font-extrabold text-gray-900">$9.99</p>
+              <span className="text-sm text-gray-500">one-time</span>
+            </div>
+            <p className="text-sm text-gray-500 mb-6">
+              Lifetime access <span className="text-orange-600 font-semibold">(first 500 users)</span>
+            </p>
+            <ul className="space-y-3 text-sm text-gray-700 mb-8">
+              <Li included>Everything in Pro</Li>
+              <Li included>Lifetime access — never pay again</Li>
+              <Li included>All future features included</Li>
+              <Li included>Early adopter badge</Li>
+            </ul>
+            {/* TODO: Replace with real Stripe payment link */}
+            <a
+              href="https://buy.stripe.com/placeholder-lifetime"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center bg-orange-500 text-white py-3 rounded-xl font-bold text-sm hover:bg-orange-600 transition shadow-lg shadow-orange-200 no-underline"
+            >
+              Get Lifetime — $9.99
             </a>
           </div>
 

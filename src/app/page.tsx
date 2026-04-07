@@ -13,7 +13,7 @@ export default function HomePage() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://chromewebstore.google.com"
+              href="https://chromewebstore.google.com" /* TODO: Replace with actual CWS listing URL */
               target="_blank"
               rel="noopener noreferrer"
               className="bg-orange-500 text-white px-8 py-3 rounded-xl font-bold text-base hover:bg-orange-600 transition shadow-lg shadow-orange-200 no-underline"

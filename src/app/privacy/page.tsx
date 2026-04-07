@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — ProductCompare for Amazon",
-  description: "How ProductCompare handles your data. Short answer: everything stays in your browser.",
+  title: "Privacy Policy — CompareCart for Amazon",
+  description: "How CompareCart handles your data. Short answer: everything stays in your browser.",
 };
 
 export default function PrivacyPage() {
@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         <p className="text-sm text-gray-500 mb-10">Last updated: April 7, 2026</p>
 
         <p>
-          ProductCompare for Amazon (&quot;ProductCompare&quot;, &quot;we&quot;, &quot;our&quot;) is a Chrome browser extension
+          CompareCart for Amazon (&quot;CompareCart&quot;, &quot;we&quot;, &quot;our&quot;) is a Chrome browser extension
           that helps users compare Amazon products side-by-side. We are committed to protecting your privacy.
           This policy explains what data we access, how we use it, and what we don&apos;t do.
         </p>
@@ -72,7 +72,7 @@ export default function PrivacyPage() {
 
         <h2 className="text-xl font-bold text-gray-900 mt-10 mb-4">Companion website</h2>
         <p>
-          The ProductCompare website (<code>productcompare.app</code>) is a static site that renders shared comparison
+          The CompareCart website (<code>comparecart.app</code>) is a static site that renders shared comparison
           links and provides extension download links. It does not use cookies, tracking scripts, or analytics
           in its current version. Links to Amazon products on the comparison page may contain an affiliate tag.
         </p>
@@ -86,7 +86,7 @@ export default function PrivacyPage() {
 
         <h2 className="text-xl font-bold text-gray-900 mt-10 mb-4">Children&apos;s privacy</h2>
         <p>
-          ProductCompare is not directed at children under 13. We do not knowingly collect
+          CompareCart is not directed at children under 13. We do not knowingly collect
           information from children.
         </p>
 
@@ -100,7 +100,7 @@ export default function PrivacyPage() {
         <h2 className="text-xl font-bold text-gray-900 mt-10 mb-4">Contact</h2>
         <p>
           If you have questions about this privacy policy, contact us at{" "}
-          <a href="mailto:privacy@productcompare.app" className="text-orange-500">privacy@productcompare.app</a>.
+          <a href="mailto:privacy@comparecart.app" className="text-orange-500">privacy@comparecart.app</a>.
         </p>
       </div>
     </div>

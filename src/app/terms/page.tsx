@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — ProductCompare for Amazon",
-  description: "Terms governing your use of the ProductCompare browser extension and website.",
+  title: "Terms of Service — CompareCart for Amazon",
+  description: "Terms governing your use of the CompareCart browser extension and website.",
 };
 
 export default function TermsPage() {
@@ -13,14 +13,14 @@ export default function TermsPage() {
         <p className="text-sm text-gray-500 mb-10">Last updated: April 7, 2026</p>
 
         <p>
-          These terms govern your use of the ProductCompare for Amazon browser extension (&quot;Extension&quot;)
-          and the ProductCompare website at <code>productcompare.app</code> (&quot;Website&quot;), collectively
+          These terms govern your use of the CompareCart for Amazon browser extension (&quot;Extension&quot;)
+          and the CompareCart website at <code>comparecart.app</code> (&quot;Website&quot;), collectively
           referred to as the &quot;Service&quot;. By using the Service, you agree to these terms.
         </p>
 
         <h2 className="text-xl font-bold text-gray-900 mt-10 mb-4">1. Description of Service</h2>
         <p>
-          ProductCompare is a browser extension that helps users compare Amazon product listings
+          CompareCart is a browser extension that helps users compare Amazon product listings
           side-by-side. It extracts publicly available product information from Amazon product pages
           and presents it in a comparison format. The Website hosts shared comparisons and provides
           information about the Extension.
@@ -62,14 +62,14 @@ export default function TermsPage() {
           The Extension interacts with third-party services that have their own terms:
         </p>
         <ul className="list-disc pl-6 space-y-1">
-          <li><strong>Amazon:</strong> Product data is read from Amazon product pages. Amazon&apos;s terms of use apply to your use of Amazon&apos;s website. ProductCompare is not affiliated with or endorsed by Amazon.</li>
+          <li><strong>Amazon:</strong> Product data is read from Amazon product pages. Amazon&apos;s terms of use apply to your use of Amazon&apos;s website. CompareCart is not affiliated with or endorsed by Amazon.</li>
           <li><strong>Anthropic:</strong> If you use AI features with your own API key, Anthropic&apos;s usage policies apply to those API calls.</li>
           <li><strong>Stripe:</strong> Payment processing is handled by Stripe, subject to Stripe&apos;s terms.</li>
         </ul>
 
         <h2 className="text-xl font-bold text-gray-900 mt-10 mb-4">6. Intellectual property</h2>
         <p>
-          The Extension, Website, and all associated code, design, and content are owned by ProductCompare.
+          The Extension, Website, and all associated code, design, and content are owned by CompareCart.
           You are granted a limited, non-exclusive, non-transferable license to use the Service for
           personal, non-commercial comparison purposes.
         </p>
@@ -90,7 +90,7 @@ export default function TermsPage() {
 
         <h2 className="text-xl font-bold text-gray-900 mt-10 mb-4">8. Limitation of liability</h2>
         <p>
-          To the maximum extent permitted by law, ProductCompare shall not be liable for any indirect,
+          To the maximum extent permitted by law, CompareCart shall not be liable for any indirect,
           incidental, special, or consequential damages arising from your use of the Service, including
           but not limited to purchase decisions made based on comparison data or AI recommendations.
         </p>
@@ -110,7 +110,7 @@ export default function TermsPage() {
         <h2 className="text-xl font-bold text-gray-900 mt-10 mb-4">11. Contact</h2>
         <p>
           For questions about these terms, contact us at{" "}
-          <a href="mailto:support@productcompare.app" className="text-orange-500">support@productcompare.app</a>.
+          <a href="mailto:support@comparecart.app" className="text-orange-500">support@comparecart.app</a>.
         </p>
       </div>
     </div>

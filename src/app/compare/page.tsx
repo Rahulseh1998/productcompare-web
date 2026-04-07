@@ -93,7 +93,7 @@ function CompareContent() {
           <div>
             <h1 className="text-2xl font-bold text-gray-900 mb-1">Product Comparison</h1>
             <p className="text-sm text-gray-500">
-              {payload.asins.length} products compared with ProductCompare
+              {payload.asins.length} products compared with CompareCart
             </p>
           </div>
           <ShareBar titles={payload.titles} />
@@ -200,16 +200,21 @@ function CompareContent() {
           </div>
         )}
 
+        {/* Branded watermark */}
+        <p className="text-center text-xs text-gray-400 mb-6">
+          Compared with <a href="/" className="text-orange-500 font-semibold no-underline hover:underline">CompareCart</a> — the free Amazon comparison extension
+        </p>
+
         {/* CTA to install extension */}
         <div className="bg-orange-50 border border-orange-200 rounded-xl p-8 text-center mb-8">
           <h2 className="text-lg font-bold text-gray-900 mb-2">
             {hasTable ? "Want AI verdicts and price history?" : "Want the full side-by-side comparison?"}
           </h2>
           <p className="text-sm text-gray-600 mb-6">
-            Install ProductCompare to compare products live on Amazon — with AI-powered verdicts, price tracking, and one-click export.
+            Install CompareCart to compare products live on Amazon — with AI-powered verdicts, price tracking, and one-click export.
           </p>
           <a
-            href="https://chromewebstore.google.com"
+            href="https://chromewebstore.google.com" /* TODO: Replace with actual CWS listing URL */
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-orange-500 text-white px-8 py-3 rounded-xl font-bold text-sm hover:bg-orange-600 transition shadow-lg shadow-orange-200 no-underline"
