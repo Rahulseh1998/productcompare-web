@@ -89,9 +89,9 @@ function CompareContent() {
     <div className="py-12">
       <div className="mx-auto max-w-5xl px-6">
         {/* Header + Share */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Product Comparison</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">Product Comparison</h1>
             <p className="text-sm text-gray-500">
               {payload.asins.length} products compared with CompareCart
             </p>
@@ -102,8 +102,12 @@ function CompareContent() {
         {hasTable ? (
           /* V2: Full comparison table */
           <div className="bg-white rounded-xl border border-gray-200 overflow-hidden mb-10">
+            {/* Scroll hint on mobile */}
+            <p className="sm:hidden text-center text-[10px] text-gray-400 py-2 bg-gray-50 border-b border-gray-100">
+              ← Swipe to see all products →
+            </p>
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse" style={{ tableLayout: "fixed" }}>
+              <table className="border-collapse" style={{ tableLayout: "fixed", minWidth: `${130 + payload.asins.length * 170}px` }}>
                 {/* Product header */}
                 <thead>
                   <tr>
