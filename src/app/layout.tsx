@@ -39,6 +39,9 @@ export default function RootLayout({
               CompareCart
             </a>
             <div className="flex items-center gap-3 sm:gap-6 text-sm">
+              <a href="/comparisons" className="text-gray-600 hover:text-gray-900 no-underline hidden sm:inline">
+                Comparisons
+              </a>
               <a href="/pro" className="text-gray-600 hover:text-gray-900 no-underline hidden sm:inline">
                 Pricing
               </a>
