@@ -9,9 +9,10 @@ export default function HomePage() {
             <span className="text-orange-500">Compare in one click.</span>
           </h1>
           <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            The free Chrome extension that lets you compare Amazon products side-by-side — with AI-powered insights, price history, and smart verdicts. No more 10 open tabs.
+            The free Chrome extension that compares Amazon products side-by-side — specs, prices, and AI-powered verdicts. No more 10 open tabs.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            {/* TODO: Replace with actual CWS listing URL */}
             <a
               href="https://chromewebstore.google.com" /* TODO: Replace with actual CWS listing URL */
               target="_blank"
@@ -21,28 +22,49 @@ export default function HomePage() {
               Add to Chrome — It&apos;s Free
             </a>
             <a
-              href="#features"
+              href="/comparisons"
               className="bg-white text-gray-700 px-8 py-3 rounded-xl font-semibold text-base border border-gray-200 hover:border-gray-300 transition no-underline"
             >
-              See Features
+              See it in Action
             </a>
           </div>
           <p className="mt-4 text-xs text-gray-400">
-            Works on all Amazon stores (US, UK, DE, JP, CA, FR) &middot; No account required
+            Works on all Amazon stores (US, UK, DE, JP, CA, FR) &middot; No account required &middot; AI features included free
           </p>
+        </div>
+      </section>
+
+      {/* Social proof bar */}
+      <section className="border-y border-gray-100 bg-white py-6">
+        <div className="mx-auto max-w-4xl px-6 flex flex-wrap items-center justify-center gap-8 text-sm text-gray-500">
+          <span className="flex items-center gap-2">
+            <span className="text-orange-500 font-bold text-lg">⚡</span>
+            Zero setup — works instantly
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="text-orange-500 font-bold text-lg">🔒</span>
+            All data stays in your browser
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="text-orange-500 font-bold text-lg">🤖</span>
+            AI verdict — no API key needed
+          </span>
         </div>
       </section>
 
       {/* How it works */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-2xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-2xl font-bold text-center text-gray-900 mb-4">
             How it works
           </h2>
+          <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">
+            Three steps. No sign-up. No API keys. Just install and compare.
+          </p>
           <div className="grid sm:grid-cols-3 gap-10">
-            <Step number="1" title="Browse & Add" description="Visit any Amazon product page. Click the floating compare button to add it to your list." />
-            <Step number="2" title="Compare Side-by-Side" description="Open the comparison panel. See every attribute lined up — differences highlighted in green and red." />
-            <Step number="3" title="Get the Verdict" description="AI analyzes specs, prices, and ratings to tell you which product wins — and why." />
+            <Step number="1" title="Browse & Add" description="Visit any Amazon product page. A floating button appears — click it to add the product to your compare list." />
+            <Step number="2" title="Compare Side-by-Side" description="Open the comparison panel. Every spec lined up in a table — differences highlighted in green and red so you see what matters." />
+            <Step number="3" title="Get the AI Verdict" description="One click generates an AI-powered verdict: best value, best specs, top rated — with a plain-English summary of why." />
           </div>
         </div>
       </section>
@@ -54,24 +76,65 @@ export default function HomePage() {
             Everything you need to decide
           </h2>
           <div className="grid sm:grid-cols-2 gap-8">
-            <Feature title="Smart Attribute Extraction" description="Automatically extracts specs from Amazon product pages — no manual data entry. Works across all categories." badge="free" />
-            <Feature title="Side-by-Side Comparison" description="Clean table with differences highlighted. Identical values dimmed so you see what matters." badge="free" />
-            <Feature title="AI-Powered Verdict" description="Claude AI analyzes your products and picks the best value, best specs, and top-rated option." badge="pro" />
-            <Feature title="Price History Chart" description="See 90 days of price trends for every product. Know if you're getting a deal or should wait." badge="pro" />
-            <Feature title="Export & Share" description="Share a comparison link with anyone. Export as CSV or a branded PNG image." badge="free" />
-            <Feature title="Cross-Category Detection" description="Accidentally comparing a laptop and a teapot? We'll warn you — but won't stop you." badge="free" />
+            <Feature
+              title="Smart Spec Extraction"
+              description="Automatically pulls 30-50 attributes from any Amazon product — dimensions, weight, battery, material, compatibility. No manual data entry."
+              badge="free"
+            />
+            <Feature
+              title="Diff Highlighting"
+              description="Differences jump out in green and red. Identical values are dimmed. You instantly see what's different between products."
+              badge="free"
+            />
+            <Feature
+              title="AI-Powered Verdict"
+              description="Claude AI compares your products and picks the best value, best specs, and top rated — with a 2-sentence summary you'd actually trust."
+              badge="free"
+              note="3 verdicts/day free, unlimited with Pro"
+            />
+            <Feature
+              title="Share & Export"
+              description="Share a comparison link on WhatsApp, X, or email. Export as CSV for spreadsheets or a branded PNG image."
+              badge="free"
+            />
+            <Feature
+              title="Price Drop Alerts"
+              description="Set alerts on compared products. Get a Chrome notification when the price drops — so you never miss a deal."
+              badge="pro"
+              note="Coming soon"
+            />
+            <Feature
+              title="Compare 5 Products"
+              description="Free users compare up to 3 products. Pro unlocks 5-product comparisons for those serious about finding the best option."
+              badge="pro"
+            />
           </div>
         </div>
       </section>
 
+      {/* Popular comparisons teaser */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            See real comparisons
+          </h2>
+          <p className="text-gray-600 mb-8 max-w-lg mx-auto">
+            Browse popular product comparisons made with CompareCart — headphones, kitchen appliances, office gear, and more.
+          </p>
+          <a href="/comparisons" className="bg-gray-900 text-white px-8 py-3 rounded-xl font-bold text-base hover:bg-gray-800 transition no-underline">
+            Browse Comparisons
+          </a>
+        </div>
+      </section>
+
       {/* Pricing preview */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Free is powerful. Pro is smarter.
           </h2>
           <p className="text-gray-600 mb-10">
-            Compare up to 3 products for free. Upgrade to Pro for AI verdicts, price history, image export, and 5-product comparisons.
+            The free tier extracts specs, compares products, and generates AI verdicts. Upgrade for price alerts, image export, and 5-product comparisons.
           </p>
           <a href="/pro" className="bg-purple-600 text-white px-8 py-3 rounded-xl font-bold text-base hover:bg-purple-700 transition no-underline">
             See Pricing
@@ -82,7 +145,9 @@ export default function HomePage() {
       {/* Final CTA */}
       <section className="py-16 bg-orange-500">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Ready to stop tab-hopping?</h2>
+          <h2 className="text-2xl font-bold text-white mb-2">Ready to stop tab-hopping?</h2>
+          <p className="text-orange-100 mb-6 text-sm">Install in 10 seconds. No sign-up. No credit card.</p>
+          {/* TODO: Replace with actual CWS listing URL */}
           <a
             href="https://chromewebstore.google.com"
             target="_blank"
@@ -109,7 +174,7 @@ function Step({ number, title, description }: { number: string; title: string; d
   );
 }
 
-function Feature({ title, description, badge }: { title: string; description: string; badge: "free" | "pro" }) {
+function Feature({ title, description, badge, note }: { title: string; description: string; badge: "free" | "pro"; note?: string }) {
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-6">
       <div className="flex items-center gap-2 mb-2">
@@ -119,6 +184,7 @@ function Feature({ title, description, badge }: { title: string; description: st
         </span>
       </div>
       <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+      {note && <p className="text-[11px] text-gray-400 mt-2">{note}</p>}
     </div>
   );
 }
