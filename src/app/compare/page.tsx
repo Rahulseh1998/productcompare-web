@@ -88,16 +88,16 @@ function CompareContent() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-5xl px-6">
-        {/* Header + Share */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-          <div>
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">Product Comparison</h1>
-            <p className="text-sm text-gray-500">
-              {payload.asins.length} products compared with CompareCart
-            </p>
-          </div>
-          <ShareBar titles={payload.titles} />
+        {/* Header */}
+        <div className="mb-8">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">Product Comparison</h1>
+          <p className="text-sm text-gray-500">
+            {payload.asins.length} products compared with CompareCart
+          </p>
         </div>
+
+        {/* Floating share sidebar */}
+        <FloatingShareSidebar titles={payload.titles} />
 
         {hasTable ? (
           /* V2: Full comparison table */
@@ -236,7 +236,7 @@ function CompareContent() {
   );
 }
 
-function ShareBar({ titles }: { titles: string[] }) {
+function FloatingShareSidebar({ titles }: { titles: string[] }) {
   const [pageUrl, setPageUrl] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -255,52 +255,69 @@ function ShareBar({ titles }: { titles: string[] }) {
 
   if (!pageUrl) return null;
 
+  const buttons = [
+    { href: `https://wa.me/?text=${encodeURIComponent(shareText + "\n" + pageUrl)}`, title: "WhatsApp", color: "#25D366", icon: <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>, icon2: <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/> },
+    { href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`, title: "X", color: "#000000", icon: <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/> },
+    { href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`, title: "Facebook", color: "#1877F2", icon: <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/> },
+    { href: `mailto:?subject=${encodeURIComponent("Product Comparison — " + productNames)}&body=${encodeURIComponent(shareText + "\n\n" + pageUrl)}`, title: "Email", color: "#6b7280", icon: <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/> },
+  ];
+
   return (
-    <div className="flex items-center gap-2">
-      <span className="text-xs text-gray-400 mr-1 hidden sm:inline">Share:</span>
-      <a
-        href={`https://wa.me/?text=${encodeURIComponent(shareText + "\n" + pageUrl)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Share on WhatsApp"
-        className="w-8 h-8 rounded-lg bg-[#25D366]/10 text-[#25D366] flex items-center justify-center hover:bg-[#25D366]/20 transition no-underline"
-      >
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
-      </a>
-      <a
-        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Post on X"
-        className="w-8 h-8 rounded-lg bg-black/5 text-black flex items-center justify-center hover:bg-black/10 transition no-underline"
-      >
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
-      <a
-        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Share on Facebook"
-        className="w-8 h-8 rounded-lg bg-[#1877F2]/10 text-[#1877F2] flex items-center justify-center hover:bg-[#1877F2]/20 transition no-underline"
-      >
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-      <a
-        href={`mailto:?subject=${encodeURIComponent("Product Comparison — " + productNames)}&body=${encodeURIComponent(shareText + "\n\n" + pageUrl)}`}
-        title="Share via Email"
-        className="w-8 h-8 rounded-lg bg-gray-100 text-gray-500 flex items-center justify-center hover:bg-gray-200 transition no-underline"
-      >
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-      </a>
-      <button
-        onClick={copyLink}
-        title="Copy link"
-        className={`px-3 h-8 rounded-lg text-xs font-semibold border transition cursor-pointer flex items-center gap-1.5 ${copied ? "bg-green-50 text-green-700 border-green-200" : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100"}`}
-      >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-        {copied ? "Copied!" : "Copy"}
-      </button>
-    </div>
+    <>
+      {/* Desktop: floating vertical sidebar on left */}
+      <div className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 z-50 flex-col gap-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl p-2 shadow-lg">
+        <span className="text-[9px] font-semibold text-gray-400 text-center uppercase tracking-wider mb-1">Share</span>
+        {buttons.map((btn) => (
+          <a
+            key={btn.title}
+            href={btn.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={btn.title}
+            className="w-9 h-9 rounded-lg flex items-center justify-center transition no-underline hover:scale-110"
+            style={{ backgroundColor: `${btn.color}15`, color: btn.color }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">{btn.icon}{btn.icon2}</svg>
+          </a>
+        ))}
+        <button
+          onClick={copyLink}
+          title="Copy link"
+          className={`w-9 h-9 rounded-lg flex items-center justify-center transition cursor-pointer hover:scale-110 ${copied ? "bg-green-100 text-green-600" : "bg-gray-100 text-gray-500"}`}
+        >
+          {copied ? (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          ) : (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile: compact bar at bottom of header */}
+      <div className="flex lg:hidden items-center justify-center gap-2 mb-6">
+        <span className="text-xs text-gray-400 mr-1">Share:</span>
+        {buttons.map((btn) => (
+          <a
+            key={btn.title}
+            href={btn.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={btn.title}
+            className="w-8 h-8 rounded-lg flex items-center justify-center transition no-underline"
+            style={{ backgroundColor: `${btn.color}12`, color: btn.color }}
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">{btn.icon}{btn.icon2}</svg>
+          </a>
+        ))}
+        <button
+          onClick={copyLink}
+          title="Copy link"
+          className={`px-3 h-8 rounded-lg text-xs font-semibold border transition cursor-pointer flex items-center gap-1.5 ${copied ? "bg-green-50 text-green-700 border-green-200" : "bg-gray-50 text-gray-600 border-gray-200"}`}
+        >
+          {copied ? "Copied!" : "Copy"}
+        </button>
+      </div>
+    </>
   );
 }
 
