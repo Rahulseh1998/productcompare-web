@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CompareCart Pro — AI Verdicts, Price History & More",
-  description: "Upgrade to Pro for AI-powered verdicts, price history charts, image export, and 5-product comparisons.",
+  title: "CompareCart Pro — AI Verdicts, Price Alerts & More",
+  description: "Upgrade to Pro for unlimited AI verdicts, price drop alerts, image export, and 5-product comparisons.",
 };
 
 export default function ProPage() {
@@ -15,7 +15,7 @@ export default function ProPage() {
             Compare smarter with <span className="text-purple-600">Pro</span>
           </h1>
           <p className="text-lg text-gray-600 max-w-xl mx-auto">
-            Everything in Free, plus AI verdicts, price history, image export, and room for 5 products.
+            Everything in Free, plus unlimited AI verdicts, price drop alerts, image export, and room for 5 products.
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export default function ProPage() {
               <Li included>CSV export</Li>
               <Li included>Share comparison link</Li>
               <Li>AI Verdict</Li>
-              <Li>Price history chart</Li>
+              <Li>Price drop alerts (coming soon)</Li>
               <Li>Image export</Li>
             </ul>
             <a
@@ -103,7 +103,7 @@ export default function ProPage() {
               <Li included>CSV export</Li>
               <Li included>Share comparison link</Li>
               <Li included>AI Verdict (Claude-powered)</Li>
-              <Li included>Price history chart (90 days)</Li>
+              <Li included>Price drop alerts (coming soon)</Li>
               <Li included>Image export with branding</Li>
             </ul>
             {/* TODO: Replace with real Stripe payment link */}
@@ -134,7 +134,7 @@ export default function ProPage() {
             />
             <Faq
               q="Is my API key required for Pro?"
-              a="No. Pro includes AI Verdict and Price History without you needing to set up any API keys. The free tier's basic extraction also works without any keys."
+              a="No. AI features work out of the box — no API keys needed. Free users get 3 AI verdicts per day. Pro users get unlimited verdicts plus upcoming features like price drop alerts."
             />
             <Faq
               q="Does the extension collect my data?"

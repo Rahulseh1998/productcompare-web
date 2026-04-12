@@ -154,7 +154,7 @@ function CompareContent() {
         {/* CTA to install extension */}
         <div className="bg-orange-50 border border-orange-200 rounded-xl p-8 text-center mb-8">
           <h2 className="text-lg font-bold text-gray-900 mb-2">
-            {hasTable ? "Want AI verdicts and price history?" : "Want the full side-by-side comparison?"}
+            {hasTable ? "Want unlimited AI verdicts and price alerts?" : "Want the full side-by-side comparison?"}
           </h2>
           <p className="text-sm text-gray-600 mb-6">
             Install CompareCart to compare products live on Amazon — with AI-powered verdicts, price tracking, and one-click export.

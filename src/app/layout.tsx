@@ -10,7 +10,7 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   title: "CompareCart — Amazon Product Comparison Tool | Compare Side-by-Side",
   description:
-    "Free Chrome extension to compare Amazon products side-by-side. AI-powered specs extraction, price history, and smart verdicts. Stop switching tabs.",
+    "Free Chrome extension to compare Amazon products side-by-side. AI-powered specs extraction, smart verdicts, and one-click sharing. Stop switching tabs.",
   keywords: [
     "compare amazon products",
     "amazon product comparison",

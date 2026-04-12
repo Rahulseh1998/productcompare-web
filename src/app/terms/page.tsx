@@ -29,11 +29,11 @@ export default function TermsPage() {
         <h2 className="text-xl font-bold text-gray-900 mt-10 mb-4">2. Free and Pro tiers</h2>
         <p>
           The Extension offers a free tier with core comparison features and a paid Pro tier with
-          additional features including AI-powered verdicts, price history charts, and image export.
+          additional features including AI-powered verdicts, price drop alerts, and image export.
         </p>
         <ul className="list-disc pl-6 space-y-1">
           <li><strong>Free tier:</strong> Compare up to 3 products, CSV export, share links.</li>
-          <li><strong>Pro tier:</strong> Compare up to 5 products, AI verdict, price history, image export. Requires a paid subscription.</li>
+          <li><strong>Pro tier:</strong> Compare up to 5 products, unlimited AI verdicts, price drop alerts, image export. Requires a paid subscription.</li>
         </ul>
 
         <h2 className="text-xl font-bold text-gray-900 mt-10 mb-4">3. Pro subscriptions and payments</h2>
@@ -82,7 +82,7 @@ export default function TermsPage() {
           <li>Product data extracted from Amazon will be accurate, complete, or up-to-date.</li>
           <li>The Extension will function without interruption, especially if Amazon changes their website structure.</li>
           <li>AI-generated verdicts or recommendations will be accurate or suitable for your needs.</li>
-          <li>Price history data reflects actual historical Amazon pricing.</li>
+          <li>AI-generated verdicts or price alerts will be accurate or timely.</li>
         </ul>
         <p className="mt-2">
           You should verify product information on Amazon before making a purchase decision.
